@@ -136,6 +136,7 @@ yarn_node_modules() {
   local production=${YARN_PRODUCTION:-false}
 
   echo "Installing node modules (yarn.lock)"
+  echo 'yarn install --production="$production" --frozen-lockfile --ignore-engines --prefer-offline --cache-folder=~/.cache/yarn'
   cd "$build_dir" || return
   monitor "yarn-install" yarn install --production="$production" --frozen-lockfile --ignore-engines --prefer-offline --cache-folder=~/.cache/yarn  2>&1
 }
